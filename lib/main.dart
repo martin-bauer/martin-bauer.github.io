@@ -3,20 +3,12 @@ import 'package:bama1033pages/services/calls_and_messages_service.dart';
 import 'package:bama1033pages/services/service_locator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:html' as html;
+import 'package:bama1033pages/extensions/hover_extensions.dart';
 
 void main() {
   setupLocator();
   runApp(MyApp());
 }
-
-//_launchURL() async {
-//  const url = 'https://flutter.io';
-//  if (await canLaunch(url)) {
-//    await launch(url);
-//  } else {
-//    throw 'Could not launch $url';
-//  }
-//}
 
 class MyApp extends StatelessWidget {
   @override
@@ -24,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Martinez`s Page',
       theme: ThemeData(
-        primarySwatch: Colors.brown,
+        primarySwatch: Colors.blueGrey,
       ),
       home: MyHomePage(title: 'Martin Bauers Page'),
     );
@@ -45,17 +37,23 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    var media = MediaQuery.of(context);
+//    print('data: $media');
+    double iconsize = 50.0;
+    double margin = 20.0;
+
+    if (media.size.width < 600) {
+      iconsize = 30.0;
+      margin = 10.0;
+    }
+
     BoxDecoration myBoxDecoration() {
       return BoxDecoration(
-        border: Border.all(color: Colors.black87, width: 20),
+        border: Border.all(color: Colors.black54, width: 20),
         borderRadius: BorderRadius.all(
             Radius.circular(300.0) //         <--- border radius here
             ),
       );
-    }
-
-    void _onSearchButtonPressed() {
-      print("search button clicked");
     }
 
     return Scaffold(
@@ -65,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
             new Container(
               decoration: new BoxDecoration(
                 image: new DecorationImage(
-                  image: AssetImage('imgs/psx.png'),
+                  image: AssetImage('imgs/psxx.png'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -76,29 +74,20 @@ class _MyHomePageState extends State<MyHomePage> {
               children: <Widget>[
                 Container(
                   decoration: new BoxDecoration(
-                    backgroundBlendMode: BlendMode.xor,
                     gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-//                      stops: [
-//                        0.1,
-//                        0.8,
-//                        0.1
-//                      ],
                       colors: [
                         new Color.fromRGBO(40, 40, 45, 0.01),
                         Colors.black87,
-//                        new Color.fromRGBO(40, 40, 45, 0.2)
                       ],
-//                      tileMode: TileMode
-//                          .repeated, // repeats the gradient over the canvas
                     ),
                   ),
                   child: Center(
                     child: Column(
                       children: <Widget>[
                         new Container(
-                          margin: const EdgeInsets.all(30.0),
+                          margin: EdgeInsets.all(30.0),
                           decoration: myBoxDecoration(),
                           child: CircleAvatar(
                               radius: 100,
@@ -106,73 +95,77 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         RichText(
                           text: TextSpan(
-                            text: 'Hey, ich  bin Martin',
+                            text: 'Hey, ich  bin Martin\n '
+                                'und ich mache was ich will',
                             style: GoogleFonts.lato(
-                                fontSize: 30, color: Colors.white),
+                              fontSize: 30,
+                              color: Colors.white,
+                            ),
                           ),
-                        ),
-                        RichText(
-                          text: TextSpan(
-                            text: 'und ich mache was ich will',
-                            style: GoogleFonts.lato(
-                                fontSize: 30, color: Colors.white),
-                          ),
+                          textAlign: TextAlign.center,
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(40.0),
+                          padding: EdgeInsets.all(margin),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Padding(
-                                padding: const EdgeInsets.all(20.0),
+                                padding: EdgeInsets.all(margin),
                                 child: IconButton(
                                   icon: Icon(Icons.code),
                                   color: Colors.white70,
-                                  iconSize: 50.0,
+                                  iconSize: iconsize + 10,
                                   onPressed: () {
-                                    html.window.open('https://github.com/bama1033', 'Github/bama1033');
+                                    html.window.open(
+                                        'https://github.com/bama1033',
+                                        'Github/bama1033');
                                   },
-                                ),
+                                ).showCursorOnHover.elevateUpOnHover,
                               ),
                               Padding(
-                                padding: const EdgeInsets.all(20.0),
+                                padding: EdgeInsets.all(margin),
                                 child: IconButton(
                                   icon: Icon(Icons.mail),
-                                  iconSize: 50,
+                                  iconSize: iconsize,
                                   color: Colors.white70,
                                   onPressed: () {
                                     _service.sendEmail();
                                   },
-                                ),
+                                ).showCursorOnHover.elevateUpOnHover,
                               ),
                               Padding(
-                                padding: const EdgeInsets.all(20.0),
+                                padding: EdgeInsets.all(margin),
                                 child: Icon(
                                   Icons.favorite,
                                   color: Colors.white70,
-                                  size: 50.0,
+                                  size: iconsize,
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.all(20.0),
+                                padding: EdgeInsets.all(margin),
                                 child: Icon(
                                   Icons.build,
                                   color: Colors.white70,
-                                  size: 50.0,
+                                  size: iconsize,
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 162.0, bottom: 32.0),
-                          child: RichText(
-                            text: TextSpan(
-                                text: 'Made with Flutter',
-                                style: GoogleFonts.lato(
-                                    fontSize: 10, color: Colors.white70)),
+                        InkWell(
+                          onTap: () {
+                            html.window.open(
+                                'https://flutter.dev/web', 'flutter.dev/web');
+                          },
+                          child: Container(
+                            padding: EdgeInsets.all(12.0),
+                            child: Text(
+                              'Made by me with Flutter',
+                              style: GoogleFonts.lato(
+                                  fontSize: 10, color: Colors.white70),
+                            ),
                           ),
-                        ),
+                        ).showCursorOnHover.elevateUpOnHover,
                       ],
                     ),
                   ),

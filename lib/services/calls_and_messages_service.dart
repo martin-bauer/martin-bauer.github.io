@@ -7,8 +7,3 @@ class CallsAndMessagesService {
 
   void sendEmail() => launch("mailto:mabaue1@gmail.com");
 }
-//class CallsAndMessagesService {
-//  void call(String number) => launch("tel:$number");
-//  void sendSms(String number) => launch("sms:$number");
-//  void sendEmail(String email) => launch("mailto:mabaue1@gmail.com");
-//}
