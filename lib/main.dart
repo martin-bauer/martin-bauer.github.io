@@ -40,11 +40,17 @@ class _MyHomePageState extends State<MyHomePage> {
     var media = MediaQuery.of(context);
 //    print('data: $media');
     double iconsize = 50.0;
-    double margin = 20.0;
+    double marginIconsHorizontal = 35.0;
+    double marginIconsVertical = 20.0;
+    double marginVerticalAvatar = 50.0;
+    double fontSize = 30.0;
 
-    if (media.size.width < 600) {
+    if (media.size.width < 650) {
       iconsize = 30.0;
-      margin = 10.0;
+      marginIconsHorizontal = 10.0;
+      marginIconsVertical = 60.0;
+      fontSize = 20.0;
+      marginVerticalAvatar = 100.0;
     }
 
     BoxDecoration myBoxDecoration() {
@@ -57,13 +63,13 @@ class _MyHomePageState extends State<MyHomePage> {
     }
 
     return Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: new Stack(
+//        resizeToAvoidBottomInset: false,
+        body: Stack(
           children: <Widget>[
             new Container(
-              decoration: new BoxDecoration(
-                image: new DecorationImage(
-                  image: AssetImage('imgs/psxx.png'),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('imgs/psxx.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -73,12 +79,12 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
                 Container(
-                  decoration: new BoxDecoration(
+                  decoration: BoxDecoration(
                     gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [
-                        new Color.fromRGBO(40, 40, 45, 0.01),
+                        Color.fromRGBO(40, 40, 45, 0.01),
                         Colors.black87,
                       ],
                     ),
@@ -87,7 +93,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Column(
                       children: <Widget>[
                         new Container(
-                          margin: EdgeInsets.all(30.0),
+                          margin:
+                              EdgeInsets.symmetric(vertical: marginVerticalAvatar),
                           decoration: myBoxDecoration(),
                           child: CircleAvatar(
                               radius: 100,
@@ -98,19 +105,20 @@ class _MyHomePageState extends State<MyHomePage> {
                             text: 'Hey, ich  bin Martin\n '
                                 'und ich mache was ich will',
                             style: GoogleFonts.lato(
-                              fontSize: 30,
+                              fontSize: fontSize,
                               color: Colors.white,
                             ),
                           ),
                           textAlign: TextAlign.center,
                         ),
                         Padding(
-                          padding: EdgeInsets.all(margin),
+                          padding: EdgeInsets.symmetric(horizontal: marginIconsHorizontal),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Padding(
-                                padding: EdgeInsets.all(margin),
+                                padding: EdgeInsets.symmetric(horizontal: marginIconsHorizontal, vertical:marginIconsVertical),
+
                                 child: IconButton(
                                   icon: Icon(Icons.code),
                                   color: Colors.white70,
@@ -123,7 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ).showCursorOnHover.elevateUpOnHover,
                               ),
                               Padding(
-                                padding: EdgeInsets.all(margin),
+                                padding: EdgeInsets.symmetric(horizontal: marginIconsHorizontal, vertical:marginIconsVertical),
                                 child: IconButton(
                                   icon: Icon(Icons.mail),
                                   iconSize: iconsize,
@@ -134,20 +142,20 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ).showCursorOnHover.elevateUpOnHover,
                               ),
                               Padding(
-                                padding: EdgeInsets.all(margin),
+                                padding: EdgeInsets.symmetric(horizontal: marginIconsHorizontal, vertical:marginIconsVertical),
                                 child: Icon(
                                   Icons.favorite,
                                   color: Colors.white70,
                                   size: iconsize,
-                                ),
+                                ).elevateUpOnHover,
                               ),
                               Padding(
-                                padding: EdgeInsets.all(margin),
+                                padding: EdgeInsets.symmetric(horizontal: marginIconsHorizontal, vertical:marginIconsVertical),
                                 child: Icon(
                                   Icons.build,
                                   color: Colors.white70,
                                   size: iconsize,
-                                ),
+                                ).elevateUpOnHover,
                               ),
                             ],
                           ),
