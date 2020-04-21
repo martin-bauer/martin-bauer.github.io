@@ -29,6 +29,25 @@
     }
   </script>
   <body id="app-container">
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
+
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyB_KDWyZ62Ko72ZH-FblSjwQ6cB-xSqBv8",
+            authDomain: "homepagefluttertracker.firebaseapp.com",
+            databaseURL: "https://homepagefluttertracker.firebaseio.com",
+            projectId: "homepagefluttertracker",
+            storageBucket: "homepagefluttertracker.appspot.com",
+            messagingSenderId: "406952262407",
+            appId: "1:406952262407:web:307fba6c37901c9ac6a3a2",
+            measurementId: "G-YWCVLX253S"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
     <script src="main.dart.js" type="application/javascript"></script>
   </body>
 </body>
