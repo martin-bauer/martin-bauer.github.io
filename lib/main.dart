@@ -3,6 +3,7 @@ import 'package:bama1033pages/services/calls_and_messages_service.dart';
 import 'package:bama1033pages/services/service_locator.dart';
 import 'package:bama1033pages/extensions/hover_extensions.dart';
 import 'dart:html' as html;
+import 'package:toast/toast.dart';
 
 void main() {
   setupLocator();
@@ -46,12 +47,16 @@ class _MyHomePageState extends State<MyHomePage> {
     double marginVerticalAvatar = 50.0;
     double fontSize = 30.0;
 
+    void showToast(String msg, {int duration, int gravity}) {
+      Toast.show(msg, context, duration: duration, gravity: gravity);
+    }
+
     if (media.size.width < 650) {
       iconsize = 30.0;
       marginIconsHorizontal = 10.0;
       marginIconsVertical = 0.0;
       fontSize = 20.0;
-      marginVerticalAvatar = 60.0;
+      marginVerticalAvatar = 70.0;
     }
 
     BoxDecoration myBoxDecoration() {
@@ -156,7 +161,6 @@ class _MyHomePageState extends State<MyHomePage> {
                               color:
                                   pressed ? Colors.redAccent : Colors.white70,
                               onPressed: () {
-                                print(pressed);
                                 setState(() {
                                   pressed = !pressed;
                                 });
@@ -171,8 +175,10 @@ class _MyHomePageState extends State<MyHomePage> {
                               icon: Icon(Icons.build),
                               iconSize: iconsize,
                               color: Colors.white70,
-                              onPressed: () {},
-                            ).elevateUpOnHover,
+                              onPressed: () {
+                                showToast("Work in Progress!");
+                              },
+                            ).showCursorOnHover.elevateUpOnHover,
                           ),
                         ],
                       ),
