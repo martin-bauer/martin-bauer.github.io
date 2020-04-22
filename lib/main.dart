@@ -48,9 +48,9 @@ class _MyHomePageState extends State<MyHomePage> {
     if (media.size.width < 650) {
       iconsize = 30.0;
       marginIconsHorizontal = 10.0;
-      marginIconsVertical = 60.0;
+      marginIconsVertical = 0.0;
       fontSize = 20.0;
-      marginVerticalAvatar = 100.0;
+      marginVerticalAvatar = 60.0;
     }
 
     BoxDecoration myBoxDecoration() {
