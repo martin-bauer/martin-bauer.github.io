@@ -34,6 +34,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final CallsAndMessagesService _service = locator<CallsAndMessagesService>();
+  bool pressed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -149,20 +150,28 @@ class _MyHomePageState extends State<MyHomePage> {
                             padding: EdgeInsets.symmetric(
                                 horizontal: marginIconsHorizontal,
                                 vertical: marginIconsVertical),
-                            child: Icon(
-                              Icons.favorite,
-                              color: Colors.white70,
-                              size: iconsize,
-                            ).elevateUpOnHover,
+                            child: IconButton(
+                              icon: Icon(Icons.favorite),
+                              iconSize: iconsize,
+                              color:
+                                  pressed ? Colors.redAccent : Colors.white70,
+                              onPressed: () {
+                                print(pressed);
+                                setState(() {
+                                  pressed = !pressed;
+                                });
+                              },
+                            ).showCursorOnHover.elevateUpOnHover,
                           ),
                           Padding(
                             padding: EdgeInsets.symmetric(
                                 horizontal: marginIconsHorizontal,
                                 vertical: marginIconsVertical),
-                            child: Icon(
-                              Icons.build,
+                            child: IconButton(
+                              icon: Icon(Icons.build),
+                              iconSize: iconsize,
                               color: Colors.white70,
-                              size: iconsize,
+                              onPressed: () {},
                             ).elevateUpOnHover,
                           ),
                         ],
