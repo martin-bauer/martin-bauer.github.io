@@ -4,6 +4,8 @@ import 'package:bama1033pages/services/service_locator.dart';
 import 'package:bama1033pages/extensions/hover_extensions.dart';
 import 'dart:html' as html;
 import 'package:toast/toast.dart';
+import 'package:carousel_pro/carousel_pro.dart';
+
 
 void main() {
   setupLocator();
@@ -67,7 +69,6 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
       );
     }
-
     return Scaffold(
 //        resizeToAvoidBottomInset: false,
         body: Stack(
@@ -118,6 +119,16 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                       textAlign: TextAlign.center,
                     ),
+                    SizedBox(
+                        height: 150.0,
+                        width: 300.0,
+                        child: Carousel(
+                          images: [
+                            AssetImage('imgs/psxme2.png'),
+                            AssetImage('imgs/psxx.jpg'),
+                            AssetImage('imgs/psxme2.png')
+                          ],
+                        )),
                     Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: marginIconsHorizontal),
