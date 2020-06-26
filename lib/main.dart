@@ -4,6 +4,7 @@ import 'package:bama1033pages/services/service_locator.dart';
 import 'package:bama1033pages/extensions/hover_extensions.dart';
 import 'dart:html' as html;
 import 'package:toast/toast.dart';
+import 'package:flutter/physics.dart';
 
 void main() {
   setupLocator();
@@ -22,45 +23,6 @@ class MyApp extends StatelessWidget {
       ),
       home: new Scaffold(
         body: MyHomePage(title: 'Martin Bauers Page'),
-        bottomNavigationBar: Stack(
-          children: [
-            new Container(
-              height: 100.0,
-              color: Colors.green,
-//              color: Color(0x00000000)
-            ),
-         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: 35,
-                  vertical: 35),
-              child: IconButton(
-                icon: Icon(Icons.code),
-                color: Colors.white70,
-                iconSize: 50,
-                onPressed: () {
-                  html.window.open(
-                      'https://github.com/bama1033',
-                      'Github/bama1033');
-                },
-              ).showCursorOnHover.elevateUpOnHover,
-            ),
-          ],
-        ),
-//            Positioned(
-//              left: 0.0,
-//              right: 0.0,
-//              top: 0.0,
-//              bottom: 0.0,
-////              child: new CustomPaint(
-////                painter: Painter(),
-////                size: Size.infinite,
-////              ),
-//            ),
-          ],
-        ),
       ),
     );
   }
@@ -77,6 +39,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final CallsAndMessagesService _service = locator<CallsAndMessagesService>();
   bool pressed = false;
+  String foos = 'One';
 
   @override
   Widget build(BuildContext context) {
@@ -108,6 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
       );
     }
+
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -116,14 +80,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         child: SingleChildScrollView(
           child: Column(
-//              new Container(
-//                decoration: BoxDecoration(
-//                  image: DecorationImage(
-//                      image: AssetImage('imgs/psxx.jpg'),
-//                      fit: BoxFit.fitHeight
-//                  ),
-//                ),
-//              ),
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
@@ -149,53 +105,18 @@ class _MyHomePageState extends State<MyHomePage> {
                             radius: 100,
                             backgroundImage: AssetImage('imgs/psxme2.png')),
                       ),
-                      new Container(
-                        margin: EdgeInsets.symmetric(
-                            vertical: marginVerticalAvatar),
-                        decoration: myBoxDecoration(),
-                        child: CircleAvatar(
-                            radius: 100,
-                            backgroundImage: AssetImage('imgs/psxme2.png')),
-                      ),
-                      new Container(
-                        margin: EdgeInsets.symmetric(
-                            vertical: marginVerticalAvatar),
-                        decoration: myBoxDecoration(),
-                        child: CircleAvatar(
-                            radius: 100,
-                            backgroundImage: AssetImage('imgs/psxme2.png')),
-                      ),
-                      new Container(
-                        margin: EdgeInsets.symmetric(
-                            vertical: marginVerticalAvatar),
-                        decoration: myBoxDecoration(),
-                        child: CircleAvatar(
-                            radius: 100,
-                            backgroundImage: AssetImage('imgs/psxme2.png')),
-                      ),
-                      new Container(
-                        margin: EdgeInsets.symmetric(
-                            vertical: marginVerticalAvatar),
-                        decoration: myBoxDecoration(),
-                        child: CircleAvatar(
-                            radius: 100,
-                            backgroundImage: AssetImage('imgs/psxme2.png')),
-                      ),
-                      new Container(
-                        margin: EdgeInsets.symmetric(
-                            vertical: marginVerticalAvatar),
-                        decoration: myBoxDecoration(),
-                        child: CircleAvatar(
-                            radius: 100,
-                            backgroundImage: AssetImage('imgs/psxme2.png')),
-                      ),
-                      new Container(
-                        margin: EdgeInsets.symmetric(
-                            vertical: marginVerticalAvatar),
-                        decoration: myBoxDecoration(),
-                        child: CircleAvatar(
-                            radius: 100,
-                            backgroundImage: AssetImage('imgs/psxme2.png')),
+                      Container(
+                        constraints:
+                            BoxConstraints(minWidth: 100, maxWidth: 200),
+                        decoration: BoxDecoration(
+                            color: Colors.blueGrey,
+                            borderRadius: BorderRadius.circular(10)),
+                        child: new ExpansionTile(
+                          title: Text("sada"),
+                          children: <Widget>[
+                            Text("HJSDA"),
+                          ],
+                        ),
                       ),
                       RichText(
                         text: TextSpan(
