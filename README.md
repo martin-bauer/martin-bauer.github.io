@@ -8,8 +8,9 @@ My HomePage with:
 
 
 
-HowTo: Building my website
--Gh-vue-Branch:make code changes then 'flutter build web --release'
--Output is in build-folder("This populates a build/web directory with built files, including an assets directory, which need to be served together.")
--Take all input from build folder and throw into to master(Replace duplicates, dont clear all because of .md-File)
-done.
+HowTo: Building my website    
+-Gh-vue-Branch:make code changes then 'flutter build web --release'   
+-Output is in build-folder("This populates a build/web directory with built files, including an assets directory, which need to be served together.")    
+-Take all input from build folder and throw into to master(Replace duplicates, dont clear all because of .md-File)    
+done. 
+
