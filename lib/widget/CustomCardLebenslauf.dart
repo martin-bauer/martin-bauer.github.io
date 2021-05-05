@@ -3,16 +3,16 @@ import 'dart:html' as html;
 
 
 class CustomCardLebenslauf extends StatelessWidget {
-  final double marginIconsHorizontal;
-  final double marginIconsVertical;
+  final double marginCardHorizontal;
+  final double marginCardVertical;
   final double iconsize;
   final IconData iconcode;
   final String titletext;
   final String description;
   final BuildContext context;
 
-  const CustomCardLebenslauf(this.marginIconsHorizontal,
-      this.marginIconsVertical,
+  const CustomCardLebenslauf(this.marginCardHorizontal,
+      this.marginCardVertical,
       this.iconsize,
       this.iconcode,
       this.titletext,
@@ -22,8 +22,8 @@ class CustomCardLebenslauf extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return _buildCustomCardLebenslauf(
-        this.marginIconsHorizontal,
-        this.marginIconsVertical,
+        this.marginCardHorizontal,
+        this.marginCardVertical,
         this.iconsize,
         this.iconcode,
         this.titletext,
@@ -31,8 +31,8 @@ class CustomCardLebenslauf extends StatelessWidget {
         this.context);
   }
 
-  Widget _buildCustomCardLebenslauf(double marginIconsHorizontal,
-      double marginIconsVertical,
+  Widget _buildCustomCardLebenslauf(double marginCardHorizontal,
+      double marginCardVertical,
       double iconsize,
       IconData icon,
       String titletext,
@@ -40,7 +40,7 @@ class CustomCardLebenslauf extends StatelessWidget {
       BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-          horizontal: marginIconsHorizontal, vertical: marginIconsVertical),
+          horizontal: marginCardHorizontal, vertical: marginCardVertical),
       child: Card(
         color: Colors.white24.withOpacity(0.8),
         child: new Container(

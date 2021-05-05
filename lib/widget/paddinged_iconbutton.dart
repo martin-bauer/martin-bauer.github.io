@@ -60,7 +60,10 @@ class PIconButton extends StatelessWidget {
         callMail();
         break;
       case'WIP':
-        showToast("Work in Progress!", context);
+        showToast("Always work in progress!", context);
+        break;
+      case'C.V. & Skills':
+        showToast("C.V. downloadable on the bottom of the page", context);
         break;
       case'CV':
         Navigator.push(

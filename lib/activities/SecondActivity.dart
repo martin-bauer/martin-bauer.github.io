@@ -8,6 +8,18 @@ import 'package:flutter/material.dart';
 class SecondRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var media = MediaQuery.of(context);
+    double cardHorizontal = 175.0;
+    double cardVertical = 20.0;
+
+    if (media.size.width < 815) {
+      cardHorizontal = 70.0;
+      cardVertical = 15.0;
+    }
+    if (media.size.width < 450) {
+      cardHorizontal = 60.0;
+      cardVertical = 10.0;
+    }
     return Scaffold(
         appBar: AppBar(
           title: Text("C.V. & Skills"),
@@ -26,7 +38,7 @@ class SecondRoute extends StatelessWidget {
         ),
         body: Container(
           child: Stack(children: <Widget>[
-            new Container(
+            Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('imgs/psxx.jpg'),
@@ -40,56 +52,56 @@ class SecondRoute extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     CustomCardLebenslauf(
-                        175.0,
-                        20.0,
+                        cardHorizontal,
+                        cardVertical,
                         10,
                         Icons.work,
                         "Current Job @ adorsys 2018-ongoing",
                         "Developed Mobile-Apps, Fullstack and more",
                         context),
                     CustomCardLebenslauf(
-                        175.0,
-                        20.0,
+                        cardHorizontal,
+                        cardVertical,
                         10,
                         Icons.school,
                         "Study at TH Nürnberg from 2016-2018",
                         "Studied for Master of Science in Wirtschaftsinformatik",
                         context),
                     CustomCardLebenslauf(
-                        175.0,
-                        20.0,
+                        cardHorizontal,
+                        cardVertical,
                         10,
                         Icons.school,
                         "Study at HS Karlsruhe from 2012-2016",
                         "Studied for Bachelor of Science in Wirtschaftsinformatik",
                         context),
                     CustomCardLebenslauf(
-                        175.0,
-                        20.0,
+                        cardHorizontal,
+                        cardVertical,
                         10,
                         Icons.school,
                         "Certificate: Architecture",
                         "ISAQB - Architecture Foundation Level",
                         context),
                     CustomCardLebenslauf(
-                        175.0,
-                        20.0,
+                        cardHorizontal,
+                        cardVertical,
                         10,
                         Icons.brush,
                         "Advanced Experience with these Frameworks and Languages",
                         "Kotlin, Java, Javascript, Android, SpringBoot, Angular, JUnit",
                         context),
                     CustomCardLebenslauf(
-                        175.0,
-                        20.0,
+                        cardHorizontal,
+                        cardVertical,
                         10,
                         Icons.brush,
                         "Basic Experience with these Frameworks and Languages",
                         "Dart, Flutter, Vue.JS, Kong API Management, 3Scale API management, Python, bash, Node.JS, C#, WPF, SQL, MongoDB, Maven, Jenkins, Openshift, Docker, JMeter, Gatling, Keycloak, AEM",
                         context),
                     CustomCardLebenslauf(
-                        175.0,
-                        20.0,
+                        cardHorizontal,
+                        cardVertical,
                         10,
                         Icons.computer,
                         "IDEs, Tools and Methods",
