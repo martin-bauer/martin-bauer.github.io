@@ -10,8 +10,8 @@ My HomePage with:
 
 HowTo: Building my website    
 -Gh-vue-Branch:make code changes then 'flutter build web --release'   
--Output is in build-folder("This populates a build/web directory with built files, including an assets directory, which need to be served together.")    
+-Output is in build-folder("This populates a build/web directory with built files, including an assets directory, which has to be copied as the root of master branch.")    
 -Copy whole build folder and switch onto to master
--Take all from build/Web and throw into master (replace duplicates, dont clear all because of .md-File)    
+-Take all from build/Web and throw into master rootlocation (replace duplicates, dont clear all because of .md-File)    
 done. 
 
