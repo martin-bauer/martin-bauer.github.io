@@ -29,7 +29,8 @@ class PIconButton extends StatelessWidget {
         this.context);
   }
 
-  Widget _buildPIconButton(double marginIconsHorizontal,
+  Widget _buildPIconButton(
+      double marginIconsHorizontal,
       double marginIconsVertical,
       double iconsize,
       IconData icon,
@@ -56,16 +57,19 @@ class PIconButton extends StatelessWidget {
       case 'Github':
         callGithubRepo();
         break;
+      case 'LinkedIn':
+        callLinkedIn();
+        break;
       case 'Mail':
         callMail();
         break;
-      case'WIP':
+      case 'WIP':
         showToast("Always work in progress!", context);
         break;
-      case'C.V. & Skills':
+      case 'C.V. & Skills':
         showToast("C.V. downloadable on the bottom of the page", context);
         break;
-      case'CV':
+      case 'CV':
         Navigator.push(
             context,
             PageRouteBuilder(
@@ -79,7 +83,12 @@ class PIconButton extends StatelessWidget {
 }
 
 void callGithubRepo() {
-  html.window.open('https://github.com/bama1033', 'Github/bama1033');
+  html.window.open('https://github.com/martin-bauer', 'Github/martin-bauer');
+}
+
+void callLinkedIn() {
+  html.window.open(
+      'https://linkedin.com/in/martin-b-5765a5180', 'LinkedIn/martin-bauer');
 }
 
 void callMail() {

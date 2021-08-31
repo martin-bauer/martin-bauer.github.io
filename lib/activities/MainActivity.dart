@@ -31,14 +31,14 @@ class _MyHomePageState extends State<MyHomePage> {
     double fontSize = 30.0;
 
 
-    if (media.size.width < 815) {
+    if (media.size.width < 960) {
       iconsize = 30.0;
       marginIconsHorizontal = 10.0;
       marginIconsVertical = 0.0;
       fontSize = 20.0;
       marginVerticalAvatar = 120.0;
     }
-    if (media.size.width < 450) {
+    if (media.size.width < 485) {
       iconsize = 25.0;
       marginIconsHorizontal = 4.0;
       marginIconsVertical = 0.0;
@@ -149,6 +149,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                   iconsize + 10,
                                   Icons.code,
                                   "Github",
+                                  context),
+                              PIconButton(
+                                  marginIconsHorizontal,
+                                  marginIconsVertical,
+                                  iconsize,
+                                  Icons.work,
+                                  "LinkedIn",
                                   context),
                               PIconButton(
                                   marginIconsHorizontal,
